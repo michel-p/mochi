@@ -19,7 +19,8 @@ export default class LoginView extends Component {
   }
 
   signup() {
-    var url = "http://192.168.1.20:80/mochi/authenticate.py?username="+this.state.username+"&password="+this.state.password;
+    var url = "http://mochi.ddns.net:80/mochi/authenticate.py?username="+this.state.username+"&password="+this.state.password;
+    // var url = "http://192.168.1.20:80/mochi/authenticate.py?username="+this.state.username+"&password="+this.state.password;
     fetch(url)
     .then((response) => response.json())
     .then((responseJson) => {

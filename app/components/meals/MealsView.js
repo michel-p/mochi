@@ -36,7 +36,8 @@ export default class MealsView extends Component {
     };
   }
   getMeals() {
-    return fetch('http://192.168.1.20:80/mochi/meals.py')
+    // return fetch('http://192.168.1.20:80/mochi/meals.py')
+    return fetch('http://mochi.ddns.net:80/mochi/meals.py')
       .then((response) => response.json())
       .then((responseJson) => {
         return responseJson;

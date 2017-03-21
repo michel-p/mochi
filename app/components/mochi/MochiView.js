@@ -43,10 +43,16 @@ export default class MochiView extends Component {
           autoplay
         >
           <View style={this.state.size}>
+            <Image style={[styles.imageCover, this.state.size]} source={require('../../assets/images/mochi_1.jpeg')}/>
+          </View>
+          <View style={this.state.size}>
             <Image style={[styles.imageCover, this.state.size]} source={require('../../assets/images/mochi_2.jpeg')}/>
           </View>
           <View style={this.state.size}>
             <Image style={[styles.imageCover, this.state.size]} source={require('../../assets/images/mochi_3.jpeg')}/>
+          </View>
+          <View style={this.state.size}>
+            <Image style={[styles.imageCover, this.state.size]} source={require('../../assets/images/mochi_4.jpeg')}/>
           </View>
         </Carousel>
         <View style={styles.containerPokedex}>
