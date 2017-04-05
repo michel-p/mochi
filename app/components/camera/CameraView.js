@@ -34,8 +34,15 @@ export default class CameraView extends Component {
   }
 
   feedMochi() {
-    // return fetch('http://192.168.1.20:80/mochi/feed.py')
-      return fetch('http://mochi.ddns.net:80/mochi/feed.py')
+    // fetch('http://192.168.1.20:80/mochi/feed.py?username=');
+    fetch('http://mochi.ddns.net:80/mochi/feed.py')
+    return true;
+  }
+
+  toggleCageLights() {
+    //  fetch('http://192.168.1.20:80/mochi/light.py');
+     fetch('http://mochi.ddns.net:80/mochi/light.py');
+     return true;
   }
 
   render() {
@@ -53,7 +60,7 @@ export default class CameraView extends Component {
 
         <ActionButton
           buttonColor="#F4FAFF"
-          onPress={() => this.feedMochi()}
+          onPress={() => this.toggleCageLights()}
           position='left'
           icon={<Icon name="ios-bulb" size={30} color="#4F646F" />}
         />
