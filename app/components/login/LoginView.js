@@ -24,18 +24,15 @@ export default class LoginView extends Component {
     fetch(url)
     .then((response) => response.json())
     .then((responseJson) => {
-      console.log(responseJson)
       if(responseJson){
-        console.log('HUrrey');
-        this.props.navigation.navigate('MochiTabs');
+        this.props.navigation.navigate('MochiTabs', {username: this.state.username});
       }
       else{
-        //error
-        console.log('error');
+        // console.log('error');
       }
     })
     .catch((error) => {
-      console.error(error);
+      // console.error(error);
     });
   }
 

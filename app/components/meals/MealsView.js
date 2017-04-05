@@ -43,7 +43,7 @@ export default class MealsView extends Component {
         return responseJson;
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
       });
   }
   render() {
