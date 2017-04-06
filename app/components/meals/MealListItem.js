@@ -12,10 +12,6 @@ export default class MealListItem extends Component {
   constructor(props){
     super(props)
   }
-
-  /*<View style={styles.ranking}>
-      <Text> Blabla Stars</Text>
-  </View>*/
   
   render() {
     var mealDate = moment(this.props.rowData[2], moment.ISO_8601).format('DD/MM/YYYY \n hh:mm');

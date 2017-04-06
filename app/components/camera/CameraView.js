@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as constants from '../../config';
 import {
   StyleSheet,
   View,
@@ -34,14 +35,12 @@ export default class CameraView extends Component {
   }
 
   feedMochi() {
-    // fetch('http://192.168.1.20:80/mochi/feed.py?username=');
-    fetch('http://mochi.ddns.net:80/mochi/feed.py')
+    fetch(constants.configuration.MOCHI_API_URL+'/feed.py')
     return true;
   }
 
   toggleCageLights() {
-    //  fetch('http://192.168.1.20:80/mochi/light.py');
-     fetch('http://mochi.ddns.net:80/mochi/light.py');
+     fetch(constants.configuration.MOCHI_API_URL+'/light.py');
      return true;
   }
 
@@ -49,8 +48,7 @@ export default class CameraView extends Component {
     return (
       <View style={{flex: 1}} onLayout={this._onLayoutDidChange}>
         <WebView style={[{ backgroundColor: '#BADA55' }, this.state.size]}
-          source={{uri: 'http://mochi.ddns.net:8081'}}
-          // source={{uri: 'http://192.168.1.20:8081'}}
+          source={{uri: constants.configuration.MOCHI_STREAM_URL}}
         />
         <ActionButton
           buttonColor="#F4FAFF"

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import * as constants from '../../config';
 import {
   StyleSheet,
   Text,
@@ -9,9 +10,6 @@ import MealListItem from './MealListItem'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const styles = StyleSheet.create({
-  /*
-   * Removed for brevity
-   */
   separator: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
@@ -36,8 +34,7 @@ export default class MealsView extends Component {
     };
   }
   getMeals() {
-    // return fetch('http://192.168.1.20:80/mochi/meals.py')
-    return fetch('http://mochi.ddns.net:80/mochi/meals.py')
+    return fetch(constants.configuration.MOCHI_API_URL+'/meals.py')
       .then((response) => response.json())
       .then((responseJson) => {
         return responseJson;

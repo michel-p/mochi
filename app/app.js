@@ -6,7 +6,6 @@ import LoginView from './components/login/LoginView';
 
 import { StackNavigator, TabNavigator, TabView } from 'react-navigation';
 
-
 const MochiTabs = TabNavigator({
   Mochi: { screen: MochiView },
   Camera: { screen: CameraView },
