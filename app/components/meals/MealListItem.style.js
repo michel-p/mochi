@@ -17,6 +17,7 @@ export default styles = StyleSheet.create({
     fontSize: 36,
     textAlign: 'center',
     color: '#000000',
+    fontFamily: "IndieFlower",
   },
   containerRanking: {
     flex:3,
@@ -28,6 +29,7 @@ export default styles = StyleSheet.create({
     backgroundColor: '#efefef',
   },
   username: {
+    fontFamily: "IndieFlower",
   },
   containerDate: {
     flex:2,

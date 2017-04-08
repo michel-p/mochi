@@ -21,8 +21,8 @@ export default class MealListItem extends Component {
           <Text style={styles.capital}>{this.props.rowData[1].substr(0, 1).toUpperCase()}</Text>
         </View>
         <View style={styles.containerRanking}>
-          <View style={styles.username}>
-              <Text>{this.props.rowData[1]}</Text>
+          <View>
+              <Text style={styles.username}>{this.props.rowData[1]}</Text>
           </View>
         </View>
         <View style={styles.containerDate}>

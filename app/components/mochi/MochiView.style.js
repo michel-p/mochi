@@ -42,5 +42,6 @@ export default styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: 'bold',
       color: '#F4FAFF',
+      fontFamily: "IndieFlower",
     }
 });

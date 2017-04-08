@@ -41,6 +41,10 @@
 		468979D501FD48F6876313BF /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B2166B0A2AD479BB19D6F4E /* SimpleLineIcons.ttf */; };
 		57400BF9804D40B59DFA633A /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7629374D0FF84EBE9DC8E659 /* libRNVectorIcons.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		6FA9F68C1E99991B000AFE95 /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FA9F68B1E99991B000AFE95 /* IndieFlower.ttf */; };
+		6FA9F68D1E99991B000AFE95 /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FA9F68B1E99991B000AFE95 /* IndieFlower.ttf */; };
+		6FA9F68E1E99991B000AFE95 /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FA9F68B1E99991B000AFE95 /* IndieFlower.ttf */; };
+		6FA9F68F1E99991B000AFE95 /* IndieFlower.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6FA9F68B1E99991B000AFE95 /* IndieFlower.ttf */; };
 		781B370B15EA4853B3B3B00F /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5D2488E22A194142B8C63570 /* Zocial.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8925C5FEE42A44BCAF2BC2B8 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DDE6EDD12CF4CA8888235E0 /* Octicons.ttf */; };
@@ -274,6 +278,7 @@
 		2DDE6EDD12CF4CA8888235E0 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		5D2488E22A194142B8C63570 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		6FA9F68B1E99991B000AFE95 /* IndieFlower.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IndieFlower.ttf; sourceTree = "<group>"; };
 		7629374D0FF84EBE9DC8E659 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		7B2166B0A2AD479BB19D6F4E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
@@ -412,6 +417,7 @@
 				2DDE6EDD12CF4CA8888235E0 /* Octicons.ttf */,
 				7B2166B0A2AD479BB19D6F4E /* SimpleLineIcons.ttf */,
 				5D2488E22A194142B8C63570 /* Zocial.ttf */,
+				6FA9F68B1E99991B000AFE95 /* IndieFlower.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -901,6 +907,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA9F68D1E99991B000AFE95 /* IndieFlower.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -920,6 +927,7 @@
 				8925C5FEE42A44BCAF2BC2B8 /* Octicons.ttf in Resources */,
 				468979D501FD48F6876313BF /* SimpleLineIcons.ttf in Resources */,
 				781B370B15EA4853B3B3B00F /* Zocial.ttf in Resources */,
+				6FA9F68C1E99991B000AFE95 /* IndieFlower.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -928,6 +936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				6FA9F68E1E99991B000AFE95 /* IndieFlower.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +944,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FA9F68F1E99991B000AFE95 /* IndieFlower.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,6 +1101,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1113,6 +1124,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+        ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

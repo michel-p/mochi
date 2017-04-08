@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import * as constants from '../../config';
+import configuration from '../../config';
+import API from '../../services/API';
 import {
   StyleSheet,
   Text,
@@ -30,21 +31,28 @@ export default class MealsView extends Component {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows(['meal_1'])
+      dataSource: ds.cloneWithRows(['meal_1']),
+      noMeals: false,
     };
+    this.getMeals()
+    .then((meals) => this.setState({dataSource: this.state.dataSource.cloneWithRows(meals)}))
+    .catch(e => this.setState({noMeals: true}))
   }
+
   getMeals() {
-    return fetch(constants.configuration.MOCHI_API_URL+'/meals.py')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        return responseJson;
-      })
-      .catch((error) => {
-        // console.error(error);
-      });
+    return API.getMeals()
+    .then(meals => {
+      if (meals != false)
+        return meals;
+      else this.setState({noMeals: true})
+    })
+    .catch(e => this.setState({noMeals: false}))
   }
-  render() {
-    this.getMeals().then((meals) => this.setState({dataSource: this.state.dataSource.cloneWithRows(meals)}))
+  render() { 
+    let noMeals = null;
+    if (this.state.noMeals) {
+      noMeals = <Text> No meals could be retrieved ! </Text>;
+    }
     return (
       <View style={{flex: 1}}>
         <ListView
@@ -52,6 +60,7 @@ export default class MealsView extends Component {
           renderRow={(rowData) => <MealListItem rowData={rowData}/>}
           renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
         />
+        { noMeals }
       </View>
     );
   }
