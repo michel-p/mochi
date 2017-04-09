@@ -76,7 +76,7 @@ export default class LoginView extends Component {
           <Image style={styles.mochi} source={require('../../assets/images/mochi-min.png')}/>
         </View>
         <View style={styles.keyboardAvoid}>
-          <KeyboardAvoidingView behavior='padding'>
+          <KeyboardAvoidingView behavior='position'>
             <TextInput
               returnKeyType = {"next"}
               autoFocus = {true}

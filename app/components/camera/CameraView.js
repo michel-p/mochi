@@ -67,7 +67,7 @@ export default class CameraView extends Component {
       <View style={styles.container} onLayout={this._onLayoutDidChange}>
         <WebView style={[styles.webview, this.state.size]}
           source={{uri: configuration.MOCHI_STREAM_URL}}
-          scalesPageToFit={false}
+          scalesPageToFit={true}
           scrollEnabled={false}
         />
         <ActionButton

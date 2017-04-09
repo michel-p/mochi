@@ -23,7 +23,7 @@ export default styles = StyleSheet.create({
     flex:3,
     flexDirection: 'column',
     justifyContent: 'center',
-    marginLeft: 10,
+    marginLeft: 5,
   },
   ranking: {
     backgroundColor: '#efefef',
@@ -46,7 +46,7 @@ export default styles = StyleSheet.create({
   },
   mochiMoods: {
     resizeMode: 'contain',
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
   }
 });

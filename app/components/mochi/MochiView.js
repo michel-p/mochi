@@ -69,11 +69,11 @@ export default class MochiView extends Component {
           </View>
           <View style={[styles.containerInfo, styles.containerHeight]}>
             <Text style={styles.label}>Height</Text>
-            <Text style={styles.value}>48cm</Text>
+            <Text style={styles.value}>46cm</Text>
           </View>
           <View style={[styles.containerInfo, styles.containerWeight]}>
             <Text style={styles.label}>Weight</Text>
-            <Text style={styles.value}>1.8kg</Text>
+            <Text style={styles.value}>2.2kg</Text>
           </View>
         </View>
       </View>
