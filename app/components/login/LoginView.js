@@ -5,13 +5,21 @@ import {
   TextInput,
   View,
   Button,
-  Image
+  Image,
+  KeyboardAvoidingView
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './LoginView.style'
 
 export default class LoginView extends Component {
+  static navigationOptions = {
+    header: (navigation, defaultHeader) => ({
+      ...defaultHeader,
+      visible: false,
+    }),
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -38,23 +46,29 @@ export default class LoginView extends Component {
     }
     return (
       <View style={styles.loginForm}>
-        <Text style={styles.appTitle}>Tamamochi</Text>
-        <Image style={styles.mochi} source={require('../../assets/images/mochi-min.png')}/>
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          onChangeText={(username) => this.setState({username})}
-        />
-        <View style={styles.separator}></View>
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          secureTextEntry
-          onChangeText={(password) => this.setState({password})}
-        />
-        <View style={styles.separator}></View>        
-        <View style={styles.separatorSubmit}></View>        
-        <View style={{ alignItems: 'center'}}>
+        <View style={styles.box}>
+          <Text style={styles.appTitle}>Tamamochi</Text>
+          <Image style={styles.mochi} source={require('../../assets/images/mochi-min.png')}/>
+        </View>
+        <View style={styles.keyboardAvoid}>
+          <KeyboardAvoidingView behavior='padding'>
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              onChangeText={(username) => this.setState({username})}
+            />
+            <View style={styles.separator}></View>
+            <TextInput
+              style={styles.input}
+              placeholder="Password"
+              secureTextEntry
+              onChangeText={(password) => this.setState({password})}
+            />
+            <View style={styles.separator}></View>
+          </KeyboardAvoidingView>
+        </View>      
+        <View style={styles.box}>
+          <View style={styles.separatorSubmit}></View>  
           <Icon.Button
             name="ios-nutrition"
             size={30}

@@ -24,22 +24,15 @@ const MochiTabs = TabNavigator({
 });
 
 const TamaMochi = StackNavigator({
-  Login: {
-    screen: LoginView,
-  },
+  // Login: {
+  //   screen: LoginView,
+  // },
   MochiTabs: {
     path: 'tamamochi:/username',
     screen: MochiTabs,
   },
 },{
-  tabBarOptions: {
-    activeTintColor: '#CE7DA5',
-  },
-  navigationOptions: {
-   header: {
-     visible: false,
-   },
-  }
+  headerMode: 'none',
 });
 
 

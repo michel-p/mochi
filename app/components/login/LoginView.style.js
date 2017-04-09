@@ -4,10 +4,12 @@ export default styles = StyleSheet.create({
   loginForm: {
     flex: 1,
     padding: 40,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: 20,
     backgroundColor: "#DDBDD5"
+  },
+  box: {
+    flex: 1,
+    alignItems: "center",
   },
   appTitle: {
     fontSize: 40,
@@ -21,15 +23,20 @@ export default styles = StyleSheet.create({
     height: 120,
     marginBottom: 20,
   },
+  keyboardAvoid: {
+    flex: 1,
+    alignItems: "stretch",
+    justifyContent: "center",
+  },
   input: {
     height: 40,
-    marginBottom: 5,
+    marginTop: 10,
     color: "#FFFFFF",
     fontSize: 20,
   },
   separator: {
-    height: 2,
-    backgroundColor: "#FFFFFF"
+    height: 1,
+    backgroundColor: "#555555"
   },
   separatorSubmit: {
     marginTop: 20,
