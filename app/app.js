@@ -32,14 +32,7 @@ const TamaMochi = StackNavigator({
     screen: MochiTabs,
   },
 },{
-  tabBarOptions: {
-    activeTintColor: '#CE7DA5',
-  },
-  navigationOptions: {
-   header: {
-     visible: false,
-   },
-  }
+  headerMode: 'none',
 });
 
 

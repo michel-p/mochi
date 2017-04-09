@@ -12,9 +12,23 @@ export default class MealListItem extends Component {
   constructor(props){
     super(props)
   }
+
+  getRandomMood() {
+    mochiMood = require('../../assets/mochi_meal4-min.jpeg');
+    switch (Math.floor(Math.random() * (4 - 1)) + 1){
+      case 1: mochiMood = require('../../assets/mochi_meal1-min.jpeg')
+      break;
+      case 2: mochiMood = require('../../assets/mochi_meal2-min.jpeg')
+      break;
+      case 3: mochiMood = require('../../assets/mochi_meal3-min.jpeg')
+      break;
+    }
+    return mochiMood;
+  }
   
   render() {
     var mealDate = moment(this.props.rowData[2], moment.ISO_8601).format('DD/MM/YYYY \n hh:mm');
+    var mochiMood = this.getRandomMood();
     return (
       <View style={styles.itemRow}>
         <View style={[styles.containerCapital/*, { backgroundColor: this.props.rowData[3] }*/]}>
@@ -29,7 +43,7 @@ export default class MealListItem extends Component {
             <Text style={styles.date}>{mealDate}</Text>
         </View>
         <View style={styles.containerMochi}>
-            <Image resizeMode="cover" source={{uri: 'https://placeholdit.imgix.net/~text?txtsize=50&txt=Mochi&w=200&h=200"'}}/>
+          <Image resizeMode="contain" style={styles.mochiMoods} source={mochiMood}/>
         </View>
       </View>
     );

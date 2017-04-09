@@ -30,6 +30,7 @@ export default styles = StyleSheet.create({
   },
   username: {
     fontFamily: "IndieFlower",
+    fontSize: 20,
   },
   containerDate: {
     flex:2,
@@ -42,7 +43,10 @@ export default styles = StyleSheet.create({
   },
   containerMochi: {
     flex:1,
-    backgroundColor: '#CE7DA5',
-    justifyContent: 'center',
+  },
+  mochiMoods: {
+    resizeMode: 'contain',
+    width: 50,
+    height: 50,
   }
 });

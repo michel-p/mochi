@@ -42,26 +42,9 @@
 	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-		<key>NSExceptionDomains</key>
-		<dict>
-			<key>localhost</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-			</dict>
-		</dict>
-		<key>mochi.ddns.net</key>
-		<dict>
-			<!--Include to allow subdomains-->
-			<key>NSIncludesSubdomains</key>
-			<true/>
-			<!--Include to allow HTTP requests-->
-			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-			<true/>
-			<!--Include to specify minimum TLS version-->
-			<key>NSTemporaryExceptionMinimumTLSVersion</key>
-			<string>TLSv1.1</string>
-		</dict>
+		<!--Include to allow all connections (DANGER)-->
+  		<key>NSAllowsArbitraryLoads</key>
+      	<true/>
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
