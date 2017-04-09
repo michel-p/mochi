@@ -12,7 +12,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import ActionButton from 'react-native-action-button';
 import styles from './CameraView.style'
 
-// const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export default class CameraView extends Component {
   static navigationOptions = {
@@ -27,16 +27,16 @@ export default class CameraView extends Component {
     super(props);
 
     this.state = {
-      // size: { width, height },
+      size: { width, height },
       feedAllowed: true,
       lightOn: false,
     };
   }
 
-  // _onLayoutDidChange = (e) => {
-  //   const layout = e.nativeEvent.layout;
-  //   this.setState({ size: { width: layout.width, height: layout.height } });
-  // }
+  _onLayoutDidChange = (e) => {
+    const layout = e.nativeEvent.layout;
+    this.setState({ size: { width: layout.width, height: layout.height } });
+  }
 
   feedMochi() {
     API.feedMochi()
@@ -64,8 +64,8 @@ export default class CameraView extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <WebView style={styles.webview}
+      <View style={styles.container} onLayout={this._onLayoutDidChange}>
+        <WebView style={[styles.webview, this.state.size]}
           source={{uri: configuration.MOCHI_STREAM_URL}}
           scalesPageToFit={false}
           scrollEnabled={false}

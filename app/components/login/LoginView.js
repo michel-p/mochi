@@ -6,7 +6,8 @@ import {
   View,
   Button,
   Image,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  ActivityIndicator
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -26,17 +27,41 @@ export default class LoginView extends Component {
       username: '',
       password: '',
       wrongSignUp: false,
+      loadingTamamochi: false,
     };
   }
 
   signup() {
+    this.setState({loadingTamamochi: true, wrongSignUp: false});
     API.authenticate(this.state.username, this.state.password)
     .then(token => {
       if (token != false)
         this.props.navigation.navigate('MochiTabs', {username: this.state.username});
-      else this.setState({wrongSignUp: true})
+      else this.setState({wrongSignUp: true, loadingTamamochi: false})
     })
-    .catch(e => this.setState({wrongSignUp: true}))
+    .catch(e => this.setState({wrongSignUp: true, loadingTamamochi: false}))
+  }
+
+  renderSubmitIcon() {
+    if(this.state.loadingTamamochi) {
+      return (
+        <ActivityIndicator
+          animating={this.state.loadingTamamochi}
+          color="#FFFFFF"
+          style={[styles.centering, {height: 50}]}
+          size="large"
+        />
+      );
+    }
+    return (
+      <Icon.Button
+        name="ios-nutrition"
+        size={30}
+        style={styles.submit}
+        onPress={() => this.signup()}>
+        <Text style={styles.submitText}>Sign in</Text>
+      </Icon.Button>
+    );
   }
 
   render() {
@@ -53,29 +78,33 @@ export default class LoginView extends Component {
         <View style={styles.keyboardAvoid}>
           <KeyboardAvoidingView behavior='padding'>
             <TextInput
+              returnKeyType = {"next"}
+              autoFocus = {true}
               style={styles.input}
               placeholder="Username"
               onChangeText={(username) => this.setState({username})}
+              onSubmitEditing={(event) => { 
+                this.refs.SecondInput.focus(); 
+              }}
             />
             <View style={styles.separator}></View>
             <TextInput
+              ref='SecondInput'
+              returnKeyType = {"go"}
               style={styles.input}
               placeholder="Password"
               secureTextEntry
               onChangeText={(password) => this.setState({password})}
+              onSubmitEditing={(event) => { 
+                this.signup();
+              }}
             />
             <View style={styles.separator}></View>
           </KeyboardAvoidingView>
         </View>      
         <View style={styles.box}>
           <View style={styles.separatorSubmit}></View>  
-          <Icon.Button
-            name="ios-nutrition"
-            size={30}
-            style={styles.submit}
-            onPress={() => this.signup()}>
-            <Text style={styles.submitText}>Sign in</Text>
-          </Icon.Button>
+          { this.renderSubmitIcon() }
           { errors }
         </View>
       </View>
