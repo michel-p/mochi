@@ -7,7 +7,5 @@ export default styles = StyleSheet.create({
     marginTop: 20
   },
   webview: {
-    flex: 1,
-    alignSelf: "stretch"
   }
 });
