@@ -4,6 +4,7 @@ import {
   Text,
   TextInput,
   View,
+  ScrollView,
   Button,
   Image,
   KeyboardAvoidingView,
@@ -70,7 +71,7 @@ export default class LoginView extends Component {
       errors = <Text style={styles.errors}> Incorrect login or password</Text>;
     }
     return (
-      <View style={styles.loginForm}>
+      <ScrollView style={styles.loginForm}>
         <View style={styles.box}>
           <Text style={styles.appTitle}>Tamamochi</Text>
           <Image style={styles.mochi} source={require('../../assets/images/mochi-min.png')}/>
@@ -107,7 +108,7 @@ export default class LoginView extends Component {
           { this.renderSubmitIcon() }
           { errors }
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

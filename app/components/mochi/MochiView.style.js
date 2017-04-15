@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default styles = StyleSheet.create({
     containerMochi: {
       flex: 1,
-      marginTop: 20,
+      paddingTop: 20,
     },
     imageCover: {
       resizeMode: 'cover'

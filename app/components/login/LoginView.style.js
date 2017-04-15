@@ -4,7 +4,6 @@ export default styles = StyleSheet.create({
   loginForm: {
     flex: 1,
     padding: 40,
-    marginTop: 20,
     backgroundColor: "#DDBDD5"
   },
   box: {

@@ -6,13 +6,13 @@ import {
   View,
   WebView,
   Dimensions,
+  AppState,
+  Text
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 import ActionButton from 'react-native-action-button';
 import styles from './CameraView.style'
-
-const { width, height } = Dimensions.get('window');
 
 export default class CameraView extends Component {
   static navigationOptions = {
@@ -27,52 +27,98 @@ export default class CameraView extends Component {
     super(props);
     this.state = {
       username: this.props.navigation.state.params.username,
-      size: { width, height },
       feedAllowed: true,
       lightOn: false,
+      appState: AppState.currentState,
+      mochiURI: configuration.MOCHI_STREAM_URL,
+      feedback: false,
     };
   }
 
-  _onLayoutDidChange = (e) => {
-    const layout = e.nativeEvent.layout;
-    this.setState({ size: { width: layout.width, height: layout.height } });
+  componentDidMount() {
+    AppState.addEventListener('change', this._handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this._handleAppStateChange);
+  }
+
+  _handleAppStateChange = (nextAppState) => {
+    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
+      // Reset the URL so webview is re-rendered
+      this.setState({mochiURI: configuration.MOCHI_STREAM_URL});
+    }
+    this.setState({appState: nextAppState});
   }
 
   feedMochi() {
     API.feedMochi(this.state.username)
     .then(feedAllowed => {
       if (feedAllowed != false) {
-        this.setState({feedAllowed: true})
+        this.setState({
+          feedAllowed: true,
+          feedback: "Mochi is so happy !!"
+        })
         // animation
       }
-      else this.setState({feedAllowed: false})
+      else this.setState({
+        feedAllowed: false,
+        feedback: "Mochi has allready been fed too much for now"
+      })
     })
-    .catch(e => this.setState({feedAllowed: false}))
+    .catch(e => this.setState({
+      feedAllowed: false,
+      feedback: "Something went wrong, tell Michel !"
+    }))
   }
 
   toggleCageLights() {
      API.lightCage()
     .then(result => {
       if (result.lightOn != false) {
-        this.setState({lightOn: true})
+        this.setState({
+          lightOn: true,
+          feedback: "Turn on the lights !"
+        })
         // animation
       }
-      else this.setState({lightOn: false})
+      else this.setState({
+        lightOn: false,
+        feedback: "Turn off the lights !"
+      })
     })
-    .catch(e => this.setState({lightOn: false}))
+    .catch(e => this.setState({
+      lightOn: false,
+      feedback: "Something went wrong with the lights, tell Michel !"
+    }))
+  }
+
+  renderFeedback() {
+    if(this.state.feedback != false)
+      setTimeout(() => this.setState({feedback: false}), 3000);
+      return (
+        <View style={styles.feedbackContainer}>
+          <Text style={styles.feedback}> {this.state.feedback} </Text>
+        </View>
+      )
   }
 
   render() {
+    let feedback = this.renderFeedback();
     return (
       <View style={styles.container}>
         <WebView style={styles.webview}
-          source={{uri: configuration.MOCHI_STREAM_URL}}
+          source={{uri: this.state.mochiURI}}
           scalesPageToFit={true}
           scrollEnabled={true}
         />
+
+        {feedback}
+
         <ActionButton
-          buttonColor={this.state.feedAllowed ? "#CE7DA5" : "#846B8A"}
+          buttonColor={this.state.feedAllowed ? "#CE7DA5" : "#4F646F"}
           onPress={() => this.feedMochi()}
+          useNativeFeedback={false}
           icon={<Icon name="ios-nutrition" size={30} color="#F4FAFF" />}
         />
 
@@ -80,6 +126,7 @@ export default class CameraView extends Component {
           buttonColor={this.state.lightOn ? "#F7D4BC" : "#4F646F"}
           onPress={() => this.toggleCageLights()}
           position='left'
+          useNativeFeedback={false}
           icon={<Icon name="ios-bulb" size={30} color="#F4FAFF" />}
         />
       </View>

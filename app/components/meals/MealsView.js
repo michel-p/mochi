@@ -62,7 +62,7 @@ export default class MealsView extends Component {
       noMeals = <Text> No meals could be retrieved ! </Text>;
     }
     return (
-      <View style={{flex: 1, marginTop: 20}}>
+      <View style={{flex: 1, paddingTop: 20}}>
         <ListView
           dataSource={this.state.dataSource}
           renderRow={(rowData) => <MealListItem rowData={rowData}/>}
