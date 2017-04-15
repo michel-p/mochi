@@ -25,8 +25,8 @@ export default class CameraView extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
+      username: this.props.navigation.state.params.username,
       size: { width, height },
       feedAllowed: true,
       lightOn: false,
@@ -39,7 +39,7 @@ export default class CameraView extends Component {
   }
 
   feedMochi() {
-    API.feedMochi()
+    API.feedMochi(this.state.username)
     .then(feedAllowed => {
       if (feedAllowed != false) {
         this.setState({feedAllowed: true})
@@ -68,7 +68,7 @@ export default class CameraView extends Component {
         <WebView style={[styles.webview, this.state.size]}
           source={{uri: configuration.MOCHI_STREAM_URL}}
           scalesPageToFit={true}
-          scrollEnabled={false}
+          scrollEnabled={true}
         />
         <ActionButton
           buttonColor={this.state.feedAllowed ? "#CE7DA5" : "#846B8A"}

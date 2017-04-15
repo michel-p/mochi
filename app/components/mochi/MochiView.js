@@ -23,7 +23,6 @@ export default class MochiView extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       size: { width, height },
     };

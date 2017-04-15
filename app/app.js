@@ -28,7 +28,7 @@ const TamaMochi = StackNavigator({
     screen: LoginView,
   },
   MochiTabs: {
-    path: 'tamamochi:/username',
+    path: 'tamamochi/:username',
     screen: MochiTabs,
   },
 },{

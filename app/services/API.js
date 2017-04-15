@@ -11,21 +11,21 @@ var API = {
       .then(response => response.json())
       .catch(e => false)
   },
-  getMeals: function(username, password) {
+  getMeals: function() {
     url_meals = configuration.MOCHI_API_URL + "/meals.py"
     return fetch(url_meals)
       .then(APIUtils.checkStatus)
       .then(response => response.json())
       .catch(e => false)
   },
-  feedMochi: function(username, password) {
-    url_feed = configuration.MOCHI_API_URL + "/feed.py"
+  feedMochi: function(username) {
+    url_feed = configuration.MOCHI_API_URL + "/feed.py?username=" + username
     return fetch(url_feed)
       .then(APIUtils.checkStatus)
       .then(response => response.json())
       .catch(e => false)
   },
-  lightCage: function(username, password) {
+  lightCage: function() {
     url_light = configuration.MOCHI_API_URL + "/light.py"
     return fetch(url_light)
       .then(APIUtils.checkStatus)
